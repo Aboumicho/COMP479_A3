@@ -48,20 +48,22 @@ class Crawler:
     ex: concordia.ca/about.html, concordia.ca/...
     """
     def loop_pages(self):
-        for i in range(self.upper_bound, len(self.all_anchors)):
-            anchor = self.all_anchors[i]
-            flag = False
-            try: 
-                href = anchor['href'] 
-                nextUrl = self.url + href
-                self.nextUrl = nextUrl
-                response_get = requests.get(nextUrl)
-                self.nextPage = response_get
-                self.extractPage()
-                time.sleep(1)
-            except:
-                print("ERROR")
-            #If no error
+        counter = 0
+        for i in range(len(self.all_anchors)):
+            if(counter <= self.upper_bound):
+                anchor = self.all_anchors[i]
+                flag = False
+                try: 
+                    href = anchor['href'] 
+                    nextUrl = self.url + href
+                    self.nextUrl = nextUrl
+                    response_get = requests.get(nextUrl)
+                    self.nextPage = response_get
+                    self.extractPage()
+                    time.sleep(1)
+                except:
+                    a=1
+        counter +=1
     def extractPage(self):
         sub_titles = urlparse(self.nextUrl).path.split('.')[0].split('/')
         title = '_'.join(sub_titles)[1:]
@@ -74,8 +76,9 @@ class Crawler:
         self.writePagesToFiles()
 
     def writePagesToFiles(self):
-        f= open(os.getcwd() + "/Pages/" +self.title + ".txt" ,"w+")
-        f.write(self.content)
+        with open(os.getcwd() + '/Pages/' + self.title + '.txt', 'w') as file:
+            data = {'title': self.title, 'url': self.url, 'content': self.content}
+            file.write(str(data))
         
 
 
