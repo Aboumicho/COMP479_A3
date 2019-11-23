@@ -1,0 +1,10 @@
+Michel Maroun
+27197241
+
+1. spliterator: It is the combination of the two words split and iterator. Like it says in the word, the general definition is: you split and object and iterate through it.
+
+2. and 3. are coded in COMP479_Lab2.py
+
+4. You can clean the text using BeautifulSoup4 and using RegEx expressions.
+
+5. Tokenize ?

@@ -1,0 +1,6 @@
+       (distinct terms)                            (tokens)
+              number       DELTA %       T%              number       DELTA %       T%
+unfiltered       147047                                 3516607
+no numbers       134506      -9%      -10%               3362327      -5%      -5%
+30 stop words       147023      9%      8%               3196600      -5%      -6%
+150 stop words       146927      -1%      -1%               2750726      -14%      -17%

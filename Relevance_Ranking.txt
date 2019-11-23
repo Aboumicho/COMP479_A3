@@ -1,0 +1,10 @@
+Query tokens:  george  bush 
+Document  8593 has RSV of: 33.85289429246902
+Document  4008 has RSV of: 33.253956462306306
+Document  3560 has RSV of: 31.079814516462047
+Document  7525 has RSV of: 29.492362335784087
+Document  8500 has RSV of: 29.23112359057682
+Document  2796 has RSV of: 27.549830158885648
+Document  965 has RSV of: 25.001653705063234
+Document  854 has RSV of: 24.992091589376493
+Document  5405 has RSV of: 24.91963512041958
