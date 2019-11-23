@@ -50,7 +50,7 @@ class Crawler:
     def loop_pages(self):
         counter = 0
         for i in range(len(self.all_anchors)):
-            if(counter <= self.upper_bound):
+            if(counter <= self.upper_bound + 1):
                 anchor = self.all_anchors[i]
                 flag = False
                 try: 
@@ -63,7 +63,7 @@ class Crawler:
                     time.sleep(1)
                 except:
                     a=1
-        counter +=1
+            counter +=1
     def extractPage(self):
         sub_titles = urlparse(self.nextUrl).path.split('.')[0].split('/')
         title = '_'.join(sub_titles)[1:]
@@ -77,10 +77,9 @@ class Crawler:
 
     def writePagesToFiles(self):
         with open(os.getcwd() + '/Pages/' + self.title + '.txt', 'w') as file:
-            data = {'title': self.title, 'url': self.url, 'content': self.content}
+            data = {'title': self.title, 'url': self.nextUrl , 'content': self.content}
             file.write(str(data))
         
-
 
 parser = argparse.ArgumentParser()
 parser.add_argument('max', type=int, action="store", help="Choose upperbound value for number of pages to navigate")
